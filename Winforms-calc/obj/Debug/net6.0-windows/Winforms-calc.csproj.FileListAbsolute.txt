@@ -1,0 +1,15 @@
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\bin\Debug\net6.0-windows\Winforms-calc.exe
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\bin\Debug\net6.0-windows\Winforms-calc.deps.json
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\bin\Debug\net6.0-windows\Winforms-calc.runtimeconfig.json
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\bin\Debug\net6.0-windows\Winforms-calc.dll
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\bin\Debug\net6.0-windows\ref\Winforms-calc.dll
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\bin\Debug\net6.0-windows\Winforms-calc.pdb
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.csproj.AssemblyReference.cache
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.AssemblyInfoInputs.cache
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.AssemblyInfo.cs
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.csproj.CoreCompileInputs.cache
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.dll
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\ref\Winforms-calc.dll
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.pdb
+C:\Users\User-15\Desktop\Projet-calc\Winforms-calc\obj\Debug\net6.0-windows\Winforms-calc.genruntimeconfig.cache
