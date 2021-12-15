@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+
+<!---->
+      <div class="class">
+        <h3>ASTree</h3>
+        <div class="attribut">
+          <ul>
+            <li>public string Root </li>
+            <li>public ASType Type</li>
+            <li>public List < ASTree > Children</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="constructeur"><ul>
+          <li>public ASTree(ASType t = ASType.NUMERIC, string r ="0", List < ASTree > c = null)</li>
+        </ul></div>
+        <hr />
+        <div class="methode">
+            <ul><li>public void AddChild(ASTree t)</li>
+            <li>public double Evaluate(Dictionary< string, double > m)</li>
+            <li>public string Serialize(IExporter exporter)</li>
+            <li>public override string ToString()</li></ul>
+        </div>
+      </div>
+      <!---->
+        <div class="class">
+        <h3>Calculateur</h3>
+        <div class="attribut">
+          <ul>
+            <li>public string Nom</li>
+            <li>public int Valeur</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="constructeur">
+          <ul>
+            <li>
+              public Calculateur(string n = "", int v = 0)
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div class="methode">
+            <ul><li> public static void memorizeVar(string expr)</li></ul>
+        </div>
+      </div>
+    <!---->
+   <!---->
+   <div class="class">
+    <h3>public enum ASType</h3>
+    <div class="attribut">
+      <ul>
+        <li>NUMERIC</li>
+        <li>VARIABLE</li>
+        <li>FUNCTION</li>
+        <li>OPERATOR</li>
+        <li>UNARYOP</li>
+      </ul>
+    </div>
+    <hr />
+    <div class="methode">
+        <ul></ul>
+    </div>
+  </div>
+<!---->
+   <!---->
+   <div class="class">
+    <h3>public interface IExporter</h3>
+    <div class="attribut">
+      <ul>
+        
+      </ul>
+    </div>
+    <hr />
+    <div class="methode">
+        <ul><li>public string Export(ASTree tree)</li></ul>
+    </div>
+  </div>
+<!---->
+   <!---->
+   <div class="class">
+    <h3>public class RPN : IExporter</h3>
+    <div class="attribut">
+      <ul>
+        
+      </ul>
+    </div>
+    <hr />
+    <div class="methode">
+        <ul><li>public string Export(ASTree tree)</li></ul>
+    </div>
+  </div>
+<!---->
+   <!---->
+   <div class="class">
+    <h3>public class TextExporter : IExporter</h3>
+    <div class="attribut">
+      <ul>
+        
+      </ul>
+    </div>
+    <hr />
+    <div class="methode">
+        <ul><li>public string Export(ASTree tree)</li></ul>
+    </div>
+  </div>
+<!---->
+   <!---->
+   <div class="class">
+    <h3>public class LispExporter : IExporter</h3>
+    <div class="attribut">
+      <ul>
+        
+      </ul>
+    </div>
+    <hr />
+    <div class="methode">
+        <ul><li>public string Export(ASTree tree)</li></ul>
+    </div>
+  </div>
+<!---->
+   <!---->
+   <div class="class">
+    <h3>Index</h3>
+    <div class="attribut">
+      <ul>
+        <li>public static void Main(string[] args)</li>
+        <li>public static void DisplayTests(ASTree t, Dictionary m, ReversePolishNotation rpn, TextExporter te, LispExporter li)</li>
+      </ul>
+    </div>
+    <hr />
+    <div class="methode">
+        <ul><li>public string Export(ASTree tree)</li></ul>
+    </div>
+  </div>
+<!---->
+   <!---->
+   <div class="class">
+    <h3>Parser</h3>
+    <div class="attribut">
+      <ul>
+        <li>protected string [] tokens</li>
+        <li>protected int pos</li>
+        <li>protected Stack < int > memory</li>
+        <li>protected bool debug</li>
+        <li>protected Stack < ASTree > forest</li>
+        <li>protected Stack < int > forestMemory</li>
+        <li>public static ASTree LastExpression</li>
+      </ul>
+    </div>
+    <hr />
+    <div class="methode parser">
+        <ul><li>public static bool Parse(string expr, bool debug = false)</li>
+        <li>public bool ParseCmds(string expr, bool debug = false)</li>
+        <li>public void d(string s)</li>
+        <li>protected string token()</li>
+        <li>protected void nextToken()</li>
+        <li>protected void memorize()</li>
+        <li>protected void recall()</li>
+        <li>protected bool eos()</li>
+        <li>protected bool script()</li>
+        <li>protected bool end_script()</li>
+        <li>protected bool affect_expr()</li>
+        <li>protected bool affect_operator()</li>
+        <li>protected bool end_affect_expr(bool isVar)</li>
+        <li>protected bool arith_expr()</li>
+        <li>protected bool end_arith_expr(bool isTerm)</li>
+        <li>protected bool term()</li>
+        <li>protected bool end_term(bool isFactor)</li>
+        <li>protected bool unaryMinus()</li>
+        <li>protected bool end_unary_minus()</li>
+        <li>protected bool factor()</li>
+        <li>protected bool variable()</li>
+        <li>protected bool numeric()</li>
+        <li>protected bool function()</li>
+        <li>protected bool end_function(bool isArgList)</li>
+        <li>protected bool func_name()</li>
+        <li>protected bool arg_list()</li>
+        <li>protected bool end_arg_list(bool isArg)</li>
+        <li>public static void SendMsg(string expr, bool debug = false)</li>
+        <li>public static void test(string expr, bool debug = false)</li>
+        <li>public static bool testExport(string expr, string attendu, string formatExport)</li>
+        <li>public static bool calculExport(string expr, double attendu)</li>
+        <li>public static void verifExprExport(string expr)</li>
+        </ul>
+    </div>
+  </div>
+<!---->
+    </div>
+
+    <style>
+      body {
+        background: #212121;
+        font-family: fantasy;
+      }
+      .container{
+          display:grid;
+          grid-template-columns:repeat(5,1fr);
+          column-gap: 2rem;
+          row-gap: 2rem;
+          padding:0 2rem;
+      }
+      h3{
+          text-align: center;
+      }
+      .class {
+        color:rgba(170, 170, 170, 0.74);
+        background: linear-gradient(45deg,  rgba(0,0,0,0.5) 25%, transparent 75%) ;
+        box-shadow:5px 5px 10px rgba(0,0,0,0.8);
+        border-radius: 4px;
+        overflow-y: auto;
+        height:400px;
+        width:300px;
+        transition:0.5s;
+      }
+      li{
+        margin:5px 0;
+      }
+  @media screen and (max-width:768px) { 
+      .container{
+          grid-template-columns: 1fr;
+      }
+  }
+ 
+    </style>
+  </body>
+</html>
