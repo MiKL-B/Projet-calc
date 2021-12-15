@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Drawing;
 namespace Winforms_calc;
 
 partial class Form1
@@ -31,33 +32,69 @@ partial class Form1
     {
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 450);
+        this.ClientSize = new System.Drawing.Size(800, 200);
         this.Text = "Form1";
-        //button 1
-        btn1 = new Button();
-        btn1.Name = "btn1";
-        btn1.Text = "Recopier";
-        btn1.Location = new System.Drawing.Point(600, 20);
-        btn1.Size = new System.Drawing.Size(100, 50);
-        this.Controls.Add(btn1);
-        //button 2
+
+        //labelOriginal
+        lblOriginal = new Label();
+        lblOriginal.Name = "lblOriginal";
+        lblOriginal.Text = "Original :";
+        lblOriginal.Location = new System.Drawing.Point(20, 20);
+        this.Controls.Add(lblOriginal);
+
+        //labelCopie
+        lblCopie = new Label();
+        lblCopie.Name = "lblCopie";
+        lblCopie.Text = "Copie :";
+        lblCopie.Location = new System.Drawing.Point(20, 50);
+        this.Controls.Add(lblCopie);
+
+        //labelResultat
+        lblResultat = new Label();
+        lblResultat.Name = "lblResultat";
+        lblResultat.Text = "Resultat";
+        lblResultat.Location = new System.Drawing.Point(200, 50);
+        lblResultat.Size = new System.Drawing.Size(200, 50);
+        this.Controls.Add(lblResultat);
+
+        //textbox or input
+        input = new TextBox();
+        input.Name = "input";
+        // input.Text;
+        input.Location = new System.Drawing.Point(200, 20);
+        input.Size = new System.Drawing.Size(200, 50);
+        this.Controls.Add(input);
+
+        //button Recopie
+        btnRecopie = new Button();
+        btnRecopie.Name = "btnRecopie";
+        btnRecopie.Text = "Recopier";
+        // btn1.ForeColor = Color.FromArgb(255, 76, 41);
+        // btn1.BackColor = Color.FromArgb(8, 32, 50);
+        btnRecopie.Location = new System.Drawing.Point(600, 20);
+        // btn1.Size = new System.Drawing.Size(100, 50);
+        this.Controls.Add(btnRecopie);
+
+        //button Delete
         btnDelete = new Button();
-        btnDelete.Name = "btn1";
+        btnDelete.Name = "btnDelete";
         btnDelete.Text = "Effacer";
-        btnDelete.Location = new System.Drawing.Point(600, 120);
-        btnDelete.Size = new System.Drawing.Size(100, 50);
+        btnDelete.Location = new System.Drawing.Point(600, 50);
+        // btnDelete.Size = new System.Drawing.Size(100, 50);
         this.Controls.Add(btnDelete);
-        //button 3
+
+        //button Quit
         btnQuit = new Button();
-        btnQuit.Name = "btn1";
+        btnQuit.Name = "btnQuit";
         btnQuit.Text = "Quitter";
-        btnQuit.Location = new System.Drawing.Point(600, 240);
-        btnQuit.Size = new System.Drawing.Size(100, 50);
+        btnQuit.Location = new System.Drawing.Point(600, 80);
+        // btnQuit.Size = new System.Drawing.Size(100, 50);
         this.Controls.Add(btnQuit);
     }
-    private Button btn1;
-    private Button btnDelete;
-    private Button btnQuit;
+    private Label lblOriginal, lblCopie, lblResultat;
+    private TextBox input;
+    private Button btnRecopie, btnDelete, btnQuit;
+
 
     #endregion
 }
