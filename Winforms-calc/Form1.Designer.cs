@@ -37,6 +37,7 @@ partial class Form1
 
         //déclaration
         gbxCouleur = new GroupBox();
+        gbText = new GroupBox();
         gbPhrase = new GroupBox();
         rbRouge = new RadioButton();
         rbVert = new RadioButton();
@@ -66,11 +67,11 @@ partial class Form1
         btnSearch = new Button();
 
         //gbxcouleur
-        gbxCouleur.Controls.AddRange(new Control[] { rbRouge, rbVert, rbBleu });
+        gbxCouleur.Controls.AddRange(new Control[] { rbRouge, rbVert, rbBleu ,lblColor});
         gbxCouleur.Text = "Radio buttons";
         gbxCouleur.Visible = false;
-        gbxCouleur.Location = new System.Drawing.Point(50, 200);
-        gbxCouleur.Size = new System.Drawing.Size(200, 100);
+        gbxCouleur.Location = new System.Drawing.Point(50, 250);
+        gbxCouleur.Size = new System.Drawing.Size(600, 200);
 
         //rouge 
         rbRouge.Text = "&Rouge";
@@ -93,29 +94,35 @@ partial class Form1
         rbBleu.Size = new System.Drawing.Size(67, 20);
         this.rbBleu.CheckedChanged += new EventHandler(rbColor_CheckedChanged);
 
+        //gbText
+        gbText.Controls.AddRange(new Control[]{lblOriginal, lblCopie, lblResultat, input, btnRecopier, btnEffacer, btnQuitter, chkModifier});
+        gbText.Visible = true;
+        gbText.Location = new System.Drawing.Point(50,50);
+        gbText.Size = new System.Drawing.Size(600,200);
+
         //gbPhrase
-        gbPhrase.Controls.AddRange(new Control[] { rbPhrase1, rbPhrase2, rbPhrase3 });
+        gbPhrase.Controls.AddRange(new Control[] { rbPhrase1, rbPhrase2, rbPhrase3 ,lblPhrase1,lblPhrase2,lblPhrase3,inputPhrase1,inputPhrase2,inputPhrase3,inputSearch,inputOccurence,lblSearch,lblOccurence,btnSearch});
         gbPhrase.Text = "Rechercher dans";
         gbPhrase.Visible = true;
-        gbPhrase.Location = new System.Drawing.Point(50, 400);
-        gbPhrase.Size = new System.Drawing.Size(200, 100);
+        gbPhrase.Location = new System.Drawing.Point(50, 450);
+        gbPhrase.Size =new System.Drawing.Size(600,200);
 
         //rbPhrase1 
         rbPhrase1.Text = "Phrase 1";
         rbPhrase1.Checked = true;
-        rbPhrase1.Location = new System.Drawing.Point(31, 20);
+        rbPhrase1.Location = new System.Drawing.Point(30, 100);
         rbPhrase1.Size = new System.Drawing.Size(100, 20);
 
         //rbPhrase2
         rbPhrase2.Text = "Phrase 2";
         rbPhrase2.Checked = false;
-        rbPhrase2.Location = new System.Drawing.Point(31, 40);
+        rbPhrase2.Location = new System.Drawing.Point(30, 130);
         rbPhrase2.Size = new System.Drawing.Size(100, 20);
 
         //rbPhrase3
         rbPhrase3.Text = "Phrase 3";
         rbPhrase3.Checked = false;
-        rbPhrase3.Location = new System.Drawing.Point(31, 60);
+        rbPhrase3.Location = new System.Drawing.Point(30, 160);
         rbPhrase3.Size = new System.Drawing.Size(100, 20);
 
         //lblOriginal
@@ -138,37 +145,37 @@ partial class Form1
         lblColor.Text = "La couleur choisie";
         lblColor.BackColor = Color.Red;
         lblColor.AutoSize = false;
-        lblColor.Location = new System.Drawing.Point(300, 200);
-        lblColor.Size = new System.Drawing.Size(200, 100);
+        lblColor.Location = new System.Drawing.Point(300, 50);
+        lblColor.Size = new System.Drawing.Size(100, 100);
 
         //lblPhrase1
         lblPhrase1.Name = "lblPhrase1";
         lblPhrase1.Text = "Phrase 1 ";
-        lblPhrase1.Location = new System.Drawing.Point(50, 310);
+        lblPhrase1.Location = new System.Drawing.Point(30, 20);
         lblPhrase1.Size = new System.Drawing.Size(67, 20);
 
         //lblPhrase2
         lblPhrase2.Name = "lblPhrase2";
         lblPhrase2.Text = "Phrase 2 ";
-        lblPhrase2.Location = new System.Drawing.Point(50, 330);
+        lblPhrase2.Location = new System.Drawing.Point(30, 40);
         lblPhrase2.Size = new System.Drawing.Size(67, 20);
 
         //lblPhrase3
         lblPhrase3.Name = "lblPhrase3";
         lblPhrase3.Text = "Phrase 3 ";
-        lblPhrase3.Location = new System.Drawing.Point(50, 350);
+        lblPhrase3.Location = new System.Drawing.Point(30, 60);
         lblPhrase3.Size = new System.Drawing.Size(67, 20);
 
         //lblSearch
         lblSearch.Name = "lblSearch";
         lblSearch.Text = "Lettre à rechercher";
-        lblSearch.Location = new System.Drawing.Point(300, 400);
+        lblSearch.Location = new System.Drawing.Point(150, 100);
         lblSearch.Size = new System.Drawing.Size(150, 20);
 
         //lblOccurence
         lblOccurence.Name = "lblOccurence";
         lblOccurence.Text = "Nombre d'occurences";
-        lblOccurence.Location = new System.Drawing.Point(300, 450);
+        lblOccurence.Location = new System.Drawing.Point(150, 125);
         lblOccurence.Size = new System.Drawing.Size(150, 20);
 
         //input
@@ -180,52 +187,52 @@ partial class Form1
         //inputPhrase1
         inputPhrase1.Name = "inputPhrase1";
         inputPhrase1.Text = "";
-        inputPhrase1.Location = new System.Drawing.Point(300, 310);
+        inputPhrase1.Location = new System.Drawing.Point(150, 25);
         inputPhrase1.Size = new System.Drawing.Size(200, 20);
 
         //inputPhrase2
         inputPhrase2.Name = "inputPhrase2";
         inputPhrase2.Text = "";
-        inputPhrase2.Location = new System.Drawing.Point(300, 330);
+        inputPhrase2.Location = new System.Drawing.Point(150, 50);
         inputPhrase2.Size = new System.Drawing.Size(200, 20);
 
         //inputPhrase3
         inputPhrase3.Name = "inputPhrase3";
         inputPhrase3.Text = "";
-        inputPhrase3.Location = new System.Drawing.Point(300, 350);
+        inputPhrase3.Location = new System.Drawing.Point(150, 75);
         inputPhrase3.Size = new System.Drawing.Size(200, 20);
 
         //inputSearch
         inputSearch.Name = "inputSearch";
         inputSearch.Text = "";
-        inputSearch.Location = new System.Drawing.Point(450, 400);
+        inputSearch.Location = new System.Drawing.Point(300, 100);
         inputSearch.Size = new System.Drawing.Size(100, 20);
         //inputOccurence
         inputOccurence.Name = "inputOccurence";
         inputOccurence.Text = "";
-        inputOccurence.Location = new System.Drawing.Point(450, 450);
+        inputOccurence.Location = new System.Drawing.Point(300, 125);
         inputOccurence.Size = new System.Drawing.Size(100, 20);
 
         //button recopier
         btnRecopier.Name = "btnRecopier";
         btnRecopier.Text = "Recopier";
-        btnRecopier.Location = new System.Drawing.Point(600, 50);
+        btnRecopier.Location = new System.Drawing.Point(500, 50);
 
         //button effacer
         btnEffacer.Name = "btnEffacer";
         btnEffacer.Text = "Effacer";
-        btnEffacer.Location = new System.Drawing.Point(600, 80);
+        btnEffacer.Location = new System.Drawing.Point(500, 80);
 
         //button quitter
         btnQuitter.Name = "btnQuitter";
         btnQuitter.Text = "Quitter";
-        btnQuitter.Location = new System.Drawing.Point(600, 110);
+        btnQuitter.Location = new System.Drawing.Point(500, 110);
 
         //btnSearch
         btnSearch.Name = "btnSearch";
         btnSearch.Text = "Lancer recherche";
-        btnSearch.Location = new System.Drawing.Point(575, 400);
-        btnSearch.Size = new System.Drawing.Size(150, 20);
+        btnSearch.Location = new System.Drawing.Point(425, 100);
+        btnSearch.Size = new System.Drawing.Size(130, 20);
         //checkbox
         chkModifier.Name = "chkModifier";
         chkModifier.Text = "Modifier la couleur";
@@ -236,33 +243,34 @@ partial class Form1
         //add
         this.Controls.Add(gbxCouleur);
         this.Controls.Add(gbPhrase);
-        this.Controls.Add(lblOriginal);
-        this.Controls.Add(lblCopie);
-        this.Controls.Add(lblResultat);
-        this.Controls.Add(lblColor);
-        this.Controls.Add(chkModifier);
-        this.Controls.Add(input);
-        this.Controls.Add(btnRecopier);
-        this.Controls.Add(btnEffacer);
-        this.Controls.Add(btnQuitter);
-        this.Controls.Add(lblPhrase1);
-        this.Controls.Add(lblPhrase2);
-        this.Controls.Add(lblPhrase3);
-        this.Controls.Add(inputPhrase1);
-        this.Controls.Add(inputPhrase2);
-        this.Controls.Add(inputPhrase3);
-        this.Controls.Add(lblSearch);
-        this.Controls.Add(lblOccurence);
-        this.Controls.Add(inputSearch);
-        this.Controls.Add(inputOccurence);
-        this.Controls.Add(btnSearch);
+        this.Controls.Add(gbText);
+        // this.Controls.Add(lblOriginal);
+        // this.Controls.Add(lblCopie);
+        // this.Controls.Add(lblResultat);
+        // this.Controls.Add(lblColor);
+        // this.Controls.Add(chkModifier);
+        // this.Controls.Add(input);
+        // this.Controls.Add(btnRecopier);
+        // this.Controls.Add(btnEffacer);
+        // this.Controls.Add(btnQuitter);
+        // this.Controls.Add(lblPhrase1);
+        // this.Controls.Add(lblPhrase2);
+        // this.Controls.Add(lblPhrase3);
+        // this.Controls.Add(inputPhrase1);
+        // this.Controls.Add(inputPhrase2);
+        // this.Controls.Add(inputPhrase3);
+        // this.Controls.Add(lblSearch);
+        // this.Controls.Add(lblOccurence);
+        // this.Controls.Add(inputSearch);
+        // this.Controls.Add(inputOccurence);
+        // this.Controls.Add(btnSearch);
 
     }
     private Button btnRecopier, btnEffacer, btnQuitter, btnSearch;
     private Label lblOriginal, lblCopie, lblResultat, lblColor, lblPhrase1, lblPhrase2, lblPhrase3, lblSearch, lblOccurence;
     private TextBox input, inputPhrase1, inputPhrase2, inputPhrase3, inputSearch, inputOccurence;
     private CheckBox chkModifier;
-    private GroupBox gbxCouleur, gbPhrase;
+    private GroupBox gbxCouleur, gbPhrase, gbText;
     private RadioButton rbRouge, rbVert, rbBleu, rbPhrase1, rbPhrase2, rbPhrase3;
     #endregion
 }
