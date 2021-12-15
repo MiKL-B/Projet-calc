@@ -90,11 +90,20 @@ partial class Form1
         btnQuit.Location = new System.Drawing.Point(600, 80);
         // btnQuit.Size = new System.Drawing.Size(100, 50);
         this.Controls.Add(btnQuit);
+
+        //groupbox
+        gb1 = new GroupBox();
+        this.Controls.Add(gb1);
+        //radio button
+        rb1 = new RadioButton();
+        rb1.Text = "radio button : ";
+        rb1.Checked = true;
+        this.Controls.Add(rb1);
     }
     private Label lblOriginal, lblCopie, lblResultat;
     private TextBox input;
     private Button btnRecopie, btnDelete, btnQuit;
-
-
+    private GroupBox gb1;
+    private RadioButton rb1;
     #endregion
 }
