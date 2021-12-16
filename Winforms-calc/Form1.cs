@@ -116,11 +116,19 @@ public partial class Form1 : Form
         this.cbxSource.Items.Clear();
         this.cbxSource.Items.Add("France");
         this.cbxSource.Items.Add("Belgique");
+
     }
     private void btnAdd_Click(object sender, EventArgs e)
     {
         this.listCible.Items.Add(this.cbxSource.SelectedItem);
         this.cbxSource.Items.Remove(this.cbxSource.SelectedItem);
+        this.cbxSource.Text = null;
+
+        if (this.cbxSource.Items.Count == 0)
+        {
+            this.btnAjouteTout.Enabled = false;
+        }
+        this.btnSupprimeTout.Enabled = true;
     }
     private void btnAddAll_Click(object sender, EventArgs e)
     {
@@ -129,6 +137,9 @@ public partial class Form1 : Form
             this.listCible.Items.Add(item);
         }
         this.cbxSource.Items.Clear();
+        this.btnAjoute.Enabled = false;
+        this.btnAjouteTout.Enabled = false;
+        this.btnSupprimeTout.Enabled = true;
 
     }
     private void btnRemove_Click(object sender, EventArgs e)
@@ -143,6 +154,10 @@ public partial class Form1 : Form
             this.cbxSource.Items.Add(item);
         }
         this.listCible.Items.Clear();
+        this.btnSupprime.Enabled = false;
+        this.btnSupprimeTout.Enabled = false;
+        this.btnAjoute.Enabled = true;
+        this.btnAjouteTout.Enabled = true;
 
     }
 
