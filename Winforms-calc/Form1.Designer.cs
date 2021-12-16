@@ -40,6 +40,7 @@ partial class Form1
         gbAffichage = new GroupBox();
         gbNumber = new GroupBox();
         comboVariable = new ComboBox();
+        comboFunction = new ComboBox();
         buttonUnary = new Button();
         buttonZero = new Button();
         buttonComma = new Button();
@@ -101,14 +102,17 @@ partial class Form1
         gbNumber.Controls.Add(buttonC);
         gbNumber.Controls.Add(buttonReturn);
         gbNumber.Controls.Add(comboVariable);
+        gbNumber.Controls.Add(comboFunction);
         gbNumber.Location = new System.Drawing.Point(0, 220);
         gbNumber.Size = new System.Drawing.Size(400, 380);
         gbNumber.BackColor = Color.Gray;
         //
         //COMBOBOX
         //
-        comboVariable.Text ="Variables";
-        comboVariable.Location = new System.Drawing.Point(0,10);
+        comboVariable.Text = "Variables";
+        comboVariable.Location = new System.Drawing.Point(0, 10);
+        comboFunction.Text = "Fonctions";
+        comboFunction.Location = new System.Drawing.Point(0, 40);
         //
         //BUTTONS
         //
@@ -266,6 +270,7 @@ partial class Form1
     }
     private GroupBox gbAffichage, gbNumber;
     private ComboBox comboVariable;
+    private ComboBox comboFunction;
     private Button buttonUnary;
     private Button buttonZero;
     private Button buttonComma;
