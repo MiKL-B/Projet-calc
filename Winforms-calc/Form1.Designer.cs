@@ -32,22 +32,37 @@ partial class Form1
     {
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(1000, 1000);
+        this.ClientSize = new System.Drawing.Size(1920, 1024);
         this.Text = "Form1";
 
         //déclaration
+        //groupbox
         gbxCouleur = new GroupBox();
         gbComboBox = new GroupBox();
         gbText = new GroupBox();
         gbPhrase = new GroupBox();
+        gbMelangeur = new GroupBox();
+        gbVitesseMelangeur = new GroupBox();
+        gbTempMelangeur = new GroupBox();
+        //listbox
         listCible = new ListBox();
+        //combo box
         cbxSource = new ComboBox();
+        //radio button
         rbRouge = new RadioButton();
         rbVert = new RadioButton();
         rbBleu = new RadioButton();
         rbPhrase1 = new RadioButton();
         rbPhrase2 = new RadioButton();
         rbPhrase3 = new RadioButton();
+        rbVitesse1 = new RadioButton();
+        rbVitesse2 = new RadioButton();
+        rbVitesse3 = new RadioButton();
+        rbVitesse4 = new RadioButton();
+        rbTemp1 = new RadioButton();
+        rbTemp2 = new RadioButton();
+        rbTemp3 = new RadioButton();
+        //label
         lblOriginal = new Label();
         lblCopie = new Label();
         lblResultat = new Label();
@@ -57,13 +72,16 @@ partial class Form1
         lblPhrase3 = new Label();
         lblSearch = new Label();
         lblOccurence = new Label();
+        //checkbox
         chkModifier = new CheckBox();
+        //textbox
         input = new TextBox();
         inputPhrase1 = new TextBox();
         inputPhrase2 = new TextBox();
         inputPhrase3 = new TextBox();
         inputSearch = new TextBox();
         inputOccurence = new TextBox();
+        //buttons
         btnRecopier = new Button();
         btnEffacer = new Button();
         btnQuitter = new Button();
@@ -74,6 +92,66 @@ partial class Form1
         btnSupprimeTout = new Button();
         btnHaut = new Button();
         btnBas = new Button();
+        btnOk = new Button();
+        btnRetablir = new Button();
+        btnQuitMelangeur = new Button();
+
+
+
+
+
+        //gbMelangeur
+        gbMelangeur.Controls.AddRange(new Control[] { btnOk, btnRetablir, btnQuitMelangeur, gbVitesseMelangeur, gbTempMelangeur });
+        gbMelangeur.Text = "Mélangeur";
+        gbMelangeur.Visible = true;
+        gbMelangeur.Location = new System.Drawing.Point(750, 50);
+        gbMelangeur.Size = new System.Drawing.Size(600, 300);
+
+        gbTempMelangeur.Controls.AddRange(new Control[] { rbTemp1, rbTemp2, rbTemp3 });
+        gbTempMelangeur.Text = "Température du mélangeur";
+        gbTempMelangeur.Location = new System.Drawing.Point(300, 50);
+        gbTempMelangeur.Size = new System.Drawing.Size(200, 120);
+
+        rbTemp1.Text = "50";
+        rbTemp1.Location = new System.Drawing.Point(20, 20);
+        rbTemp2.Text = "80";
+        rbTemp2.Location = new System.Drawing.Point(20, 40);
+        rbTemp3.Text = "100";
+        rbTemp3.Location = new System.Drawing.Point(20, 60);
+
+        gbVitesseMelangeur.Controls.AddRange(new Control[] { rbVitesse1, rbVitesse2, rbVitesse3, rbVitesse4 });
+        gbVitesseMelangeur.Text = "Vitesse Mélangeur";
+        gbVitesseMelangeur.Visible = true;
+        gbVitesseMelangeur.Location = new System.Drawing.Point(50, 50);
+        gbVitesseMelangeur.Size = new System.Drawing.Size(200, 120);
+
+        rbVitesse1.Text = "100";
+        rbVitesse1.Location = new System.Drawing.Point(20, 20);
+
+        rbVitesse2.Text = "200";
+        rbVitesse2.Location = new System.Drawing.Point(20, 40);
+
+        rbVitesse3.Text = "300";
+        rbVitesse3.Location = new System.Drawing.Point(20, 60);
+
+        rbVitesse4.Text = "500";
+        rbVitesse4.Location = new System.Drawing.Point(20, 80);
+
+        btnOk.Text = "OK";
+        btnOk.Location = new System.Drawing.Point(500, 200);
+        btnRetablir.Text = "Rétablir";
+        btnRetablir.Location = new System.Drawing.Point(500, 230);
+        btnQuitMelangeur.Text = "Quitter";
+        btnQuitMelangeur.Location = new System.Drawing.Point(500, 260);
+
+
+
+
+
+
+
+
+
 
         //gbComboBox
         gbComboBox.Controls.AddRange(new Control[] { listCible, cbxSource, btnAjoute, btnAjouteTout, btnSupprime, btnSupprimeTout, btnHaut, btnBas });
@@ -103,7 +181,7 @@ partial class Form1
         btnBas.Location = new System.Drawing.Point(400, 200);
 
         //gbxcouleur
-        gbxCouleur.Controls.AddRange(new Control[] { rbRouge, rbVert, rbBleu ,lblColor});
+        gbxCouleur.Controls.AddRange(new Control[] { rbRouge, rbVert, rbBleu, lblColor });
         gbxCouleur.Text = "Radio buttons";
         gbxCouleur.Visible = false;
         gbxCouleur.Location = new System.Drawing.Point(50, 250);
@@ -131,17 +209,17 @@ partial class Form1
         this.rbBleu.CheckedChanged += new EventHandler(rbColor_CheckedChanged);
 
         //gbText
-        gbText.Controls.AddRange(new Control[]{lblOriginal, lblCopie, lblResultat, input, btnRecopier, btnEffacer, btnQuitter, chkModifier});
+        gbText.Controls.AddRange(new Control[] { lblOriginal, lblCopie, lblResultat, input, btnRecopier, btnEffacer, btnQuitter, chkModifier });
         gbText.Visible = true;
-        gbText.Location = new System.Drawing.Point(50,50);
-        gbText.Size = new System.Drawing.Size(600,200);
+        gbText.Location = new System.Drawing.Point(50, 50);
+        gbText.Size = new System.Drawing.Size(600, 200);
 
         //gbPhrase
-        gbPhrase.Controls.AddRange(new Control[] { rbPhrase1, rbPhrase2, rbPhrase3 ,lblPhrase1,lblPhrase2,lblPhrase3,inputPhrase1,inputPhrase2,inputPhrase3,inputSearch,inputOccurence,lblSearch,lblOccurence,btnSearch});
+        gbPhrase.Controls.AddRange(new Control[] { rbPhrase1, rbPhrase2, rbPhrase3, lblPhrase1, lblPhrase2, lblPhrase3, inputPhrase1, inputPhrase2, inputPhrase3, inputSearch, inputOccurence, lblSearch, lblOccurence, btnSearch });
         gbPhrase.Text = "Rechercher dans";
         gbPhrase.Visible = true;
         gbPhrase.Location = new System.Drawing.Point(50, 450);
-        gbPhrase.Size =new System.Drawing.Size(600,200);
+        gbPhrase.Size = new System.Drawing.Size(600, 200);
 
         //rbPhrase1 
         rbPhrase1.Text = "Phrase 1";
@@ -274,14 +352,14 @@ partial class Form1
         chkModifier.Text = "Modifier la couleur";
         chkModifier.Location = new System.Drawing.Point(50, 120);
         chkModifier.Size = new System.Drawing.Size(200, 20);
-        this.chkModifier.CheckedChanged += new EventHandler(chkModifier_CheckedChanged);
+        // this.chkModifier.CheckedChanged += new EventHandler(chkModifier_CheckedChanged);
 
         //add
         this.Controls.Add(gbxCouleur);
         this.Controls.Add(gbPhrase);
         this.Controls.Add(gbText);
         this.Controls.Add(gbComboBox);
-
+        this.Controls.Add(gbMelangeur);
         // // this.Controls.Add(lblOriginal);
         // // this.Controls.Add(lblCopie);
         // // this.Controls.Add(lblResultat);
@@ -304,12 +382,12 @@ partial class Form1
         // // this.Controls.Add(btnSearch);
 
     }
-    private Button btnRecopier, btnEffacer, btnQuitter, btnSearch, btnAjoute, btnAjouteTout, btnSupprime, btnSupprimeTout, btnHaut, btnBas;
+    private Button btnRecopier, btnEffacer, btnQuitter, btnSearch, btnAjoute, btnAjouteTout, btnSupprime, btnSupprimeTout, btnHaut, btnBas, btnOk, btnRetablir, btnQuitMelangeur;
     private Label lblOriginal, lblCopie, lblResultat, lblColor, lblPhrase1, lblPhrase2, lblPhrase3, lblSearch, lblOccurence;
     private TextBox input, inputPhrase1, inputPhrase2, inputPhrase3, inputSearch, inputOccurence;
     private CheckBox chkModifier;
-    private GroupBox gbxCouleur, gbPhrase, gbText, gbComboBox;
-    private RadioButton rbRouge, rbVert, rbBleu, rbPhrase1, rbPhrase2, rbPhrase3;
+    private GroupBox gbxCouleur, gbPhrase, gbText, gbComboBox, gbMelangeur, gbVitesseMelangeur, gbTempMelangeur;
+    private RadioButton rbRouge, rbVert, rbBleu, rbPhrase1, rbPhrase2, rbPhrase3, rbVitesse1, rbVitesse2, rbVitesse3, rbVitesse4, rbTemp1, rbTemp2, rbTemp3;
     private ListBox listCible;
     private ComboBox cbxSource;
     #endregion

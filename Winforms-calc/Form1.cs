@@ -12,7 +12,7 @@ public partial class Form1 : Form
         this.input.GotFocus += new EventHandler(txtInput_GotFocus);
         this.leTexte = "Entrer le texte initial";
         this.input.Text = leTexte;
-        this.Height = 300;
+        // this.Height = 300;
         btnSearch.Click += btnChercher_Click;
         this.Init();
         btnAjoute.Click += btnAdd_Click;
@@ -47,11 +47,11 @@ public partial class Form1 : Form
     {
         this.input.Text = "";
     }
-    private void chkModifier_CheckedChanged(object sender, EventArgs e)
-    {
-        this.gbxCouleur.Visible = this.chkModifier.Checked;
-        this.Height = this.chkModifier.Checked ? 1000 : 300;
-    }
+    // private void chkModifier_CheckedChanged(object sender, EventArgs e)
+    // {
+    //     this.gbxCouleur.Visible = this.chkModifier.Checked;
+    //     this.Height = this.chkModifier.Checked ? 1024 : 300;
+    // }
     private void rbColor_CheckedChanged(object sender, EventArgs e)
     {
         if (this.rbVert.Checked)
