@@ -35,8 +35,11 @@ partial class Form1
         this.ClientSize = new System.Drawing.Size(1920, 1024);
         this.Text = "Form1";
 
-     
+     buttonOne = new Button();
+     buttonOne.Text = "1";
+     this.Controls.Add(buttonOne);
+
     }
-   
+   private Button buttonOne;
     #endregion
 }
