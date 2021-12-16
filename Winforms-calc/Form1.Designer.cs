@@ -31,8 +31,6 @@ partial class Form1
 
     public class ButtonCalc : Button
     {
-
-
         public ButtonCalc(string name, string text, int xPos, int yPos, int xSiz, int ySiz)
         {
             this.Name = Name;
@@ -42,8 +40,8 @@ partial class Form1
         }
     }
     private GroupBox gbAffichage, gbNumber;
-    // private ComboBox comboVariable;
-    // private ComboBox comboFunction;
+    private ComboBox comboVariable;
+    private ComboBox comboFunction;
     private void InitializeComponent()
     {
         this.components = new System.ComponentModel.Container();
@@ -51,10 +49,13 @@ partial class Form1
         this.ClientSize = new System.Drawing.Size(400, 600);
         this.Text = "Form1";
 
-
+        ButtonCalc Lisp = new ButtonCalc("Lisp", "Lisp", 0, 0, 70, 35);
+        ButtonCalc RPN = new ButtonCalc("RPN", "RPN", 0, 40, 70, 35);
+        ButtonCalc Memory = new ButtonCalc("Memory", "Memory", 80, 0, 70, 35);
+        ButtonCalc Affect = new ButtonCalc("Affect", "←", 80, 40, 70, 35);
         ButtonCalc Modulo = new ButtonCalc("Unary", "%", 0, 80, 100, 50);
         ButtonCalc CE = new ButtonCalc("CE", "CE", 100, 80, 100, 50);
-        ButtonCalc C = new ButtonCalc("C", "CE", 200, 80, 100, 50);
+        ButtonCalc C = new ButtonCalc("C", "C", 200, 80, 100, 50);
         ButtonCalc Return = new ButtonCalc("Return", "Return", 300, 80, 100, 50);
         ButtonCalc FunctionInverse = new ButtonCalc("FunctionInverse", "1/x", 0, 130, 100, 50);
         ButtonCalc Square = new ButtonCalc("Square", "x²", 100, 130, 100, 50);
@@ -77,116 +78,42 @@ partial class Form1
         ButtonCalc Comma = new ButtonCalc("Comma", ",", 200, 330, 100, 50);
         ButtonCalc Equal = new ButtonCalc("Equal", "=", 300, 330, 100, 50);
 
-
-        Button[] mesButtons = new Button[24];
-        mesButtons[0] = Modulo;
-        mesButtons[1] = CE;
-        mesButtons[2] = C;
-        mesButtons[3] = Return;
-        mesButtons[4] = FunctionInverse;
-        mesButtons[5] = Square;
-        mesButtons[6] = Sqrt;
-        mesButtons[7] = Division;
-        mesButtons[8] = Seven;
-        mesButtons[9] = Eight;
-        mesButtons[10] = Nine;
-        mesButtons[11] = Multiply;
-        mesButtons[12] = Four;
-        mesButtons[13] = Five;
-        mesButtons[14] = Six;
-        mesButtons[15] = Minus;
-        mesButtons[16] = One;
-        mesButtons[17] = Two;
-        mesButtons[18] = Three;
-        mesButtons[19] = Plus;
-        mesButtons[20] = Unary;
-        mesButtons[21] = Zero;
-        mesButtons[22] = Comma;
-        mesButtons[23] = Equal;
-
+        Button[] mesButtons = new Button[28] { Modulo, CE, C, Return, FunctionInverse, Square, Sqrt, Division, Seven, Eight, Nine, Multiply, Four, Five, Six, Minus, One, Two, Three, Plus, Unary, Zero, Comma, Equal, Lisp, RPN, Memory, Affect };
 
         //
         //déclaration
         //
         gbAffichage = new GroupBox();
         gbNumber = new GroupBox();
+        comboVariable = new ComboBox();
+        comboFunction = new ComboBox();
         foreach (var item in mesButtons)
         {
             gbNumber.Controls.Add(item);
         }
         gbNumber.Location = new System.Drawing.Point(0, 220);
         gbNumber.Size = new System.Drawing.Size(400, 380);
-        // gbNumber.BackColor = Color.FromArgb(32, 32, 32);
-
-        // comboVariable = new ComboBox();
-        // comboFunction = new ComboBox();
-        // buttonLisp = new Button();
-        // buttonRPN = new Button();
-        // buttonMemory = new Button();
-        // buttonAffect = new Button();
+        gbNumber.Controls.AddRange(new Control[] { comboVariable, comboFunction });
         //
         //GROUP BOX//
         //
-
         //group box affichage
-        // gbAffichage.Controls.AddRange(new Control[] { });
-        // gbAffichage.Text = "Affichage";
-        // gbAffichage.Location = new System.Drawing.Point(0, 20);
-        // gbAffichage.Size = new System.Drawing.Size(400, 200);
-        // gbAffichage.BackColor = Color.FromArgb(32, 32, 32);
-        // gbAffichage.ForeColor = Color.LightGray;
-
-
+        gbAffichage.Text = "Affichage";
+        gbAffichage.Location = new System.Drawing.Point(0, 20);
+        gbAffichage.Size = new System.Drawing.Size(400, 200);
+        gbAffichage.BackColor = Color.FromArgb(32, 32, 32);
+        gbAffichage.ForeColor = Color.LightGray;
         //
         //COMBOBOX
         //
-        // comboVariable.Text = "Variables";
-        // comboVariable.Location = new System.Drawing.Point(0, 10);
-        // comboVariable.Size = new System.Drawing.Size(100, 50);
-        // comboFunction.Text = "Fonctions";
-        // comboFunction.Location = new System.Drawing.Point(0, 40);
-        // comboFunction.Size = new System.Drawing.Size(100, 50);
-        // //
-        // //BUTTONS
-        // //
-
-
-
-
-
-        // //button lisp
-        // buttonLisp.Text = "LISP";
-        // buttonLisp.Location = new System.Drawing.Point(130, 10);
-        // buttonLisp.Size = new System.Drawing.Size(50, 25);
-        // buttonLisp.BackColor = Color.LightGray;
-
-        // //button RPN
-        // buttonRPN.Text = "RPN";
-        // buttonRPN.Location = new System.Drawing.Point(180, 10);
-        // buttonRPN.Size = new System.Drawing.Size(50, 25);
-        // buttonRPN.BackColor = Color.LightGray;
-
-        // //button affect
-        // buttonAffect.Text = "←";
-        // buttonAffect.Location = new System.Drawing.Point(230, 10);
-        // buttonAffect.Size = new System.Drawing.Size(50, 25);
-        // buttonAffect.BackColor = Color.LightGray;
-
-        // //button memory
-        // buttonMemory.Text = "Memory";
-        // buttonMemory.Location = new System.Drawing.Point(280, 10);
-        // buttonMemory.Size = new System.Drawing.Size(75, 25);
-        // buttonMemory.BackColor = Color.LightGray;
-
-
+        comboVariable.Text = "Variables";
+        comboVariable.Location = new System.Drawing.Point(160, 0);
+        comboFunction.Text = "Fonctions";
+        comboFunction.Location = new System.Drawing.Point(160, 40);
 
         //add
         this.Controls.Add(gbAffichage);
         this.Controls.Add(gbNumber);
-
     }
-
-
-
     #endregion
 }
