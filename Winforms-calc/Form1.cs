@@ -127,8 +127,14 @@ public partial class Form1 : Form
         if (this.cbxSource.Items.Count == 0)
         {
             this.btnAjouteTout.Enabled = false;
+            this.btnAjoute.Enabled = false;
         }
-        this.btnSupprimeTout.Enabled = true;
+
+        if (this.listCible.Items.Count > 0)
+        {
+            this.btnSupprime.Enabled = true;
+            this.btnSupprimeTout.Enabled = true;
+        }
     }
     private void btnAddAll_Click(object sender, EventArgs e)
     {
@@ -139,6 +145,7 @@ public partial class Form1 : Form
         this.cbxSource.Items.Clear();
         this.btnAjoute.Enabled = false;
         this.btnAjouteTout.Enabled = false;
+        this.btnSupprime.Enabled = true;
         this.btnSupprimeTout.Enabled = true;
 
     }
@@ -146,6 +153,16 @@ public partial class Form1 : Form
     {
         this.cbxSource.Items.Add(this.listCible.SelectedItem);
         this.listCible.Items.Remove(this.listCible.SelectedItem);
+        if (this.listCible.Items.Count == 0)
+        {
+            this.btnSupprime.Enabled = false;
+            this.btnSupprimeTout.Enabled = false;
+        }
+           if (this.cbxSource.Items.Count > 0)
+        {
+            this.btnAjoute.Enabled = true;
+            this.btnAjouteTout.Enabled = true;
+        }
     }
     private void btnRemoveAll_Click(object sender, EventArgs e)
     {
