@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
+using System.Collections;
 namespace Winforms_calc;
 
 partial class Form1
@@ -31,17 +32,21 @@ partial class Form1
 
     public class ButtonCalc : Button
     {
+     
         public ButtonCalc(string name, string text, int xPos, int yPos, int xSiz, int ySiz)
         {
             this.Name = Name;
             this.Text = text;
             this.Location = new System.Drawing.Point(xPos, yPos);
             this.Size = new System.Drawing.Size(xSiz, ySiz);
+       
         }
     }
     private GroupBox gbAffichage, gbNumber;
     private ComboBox comboVariable;
     private ComboBox comboFunction;
+
+
     private void InitializeComponent()
     {
         this.components = new System.ComponentModel.Container();
@@ -80,7 +85,7 @@ partial class Form1
 
         Button[] mesButtons = new Button[28] { Modulo, CE, C, Return, FunctionInverse, Square, Sqrt, Division, Seven, Eight, Nine, Multiply, Four, Five, Six, Minus, One, Two, Three, Plus, Unary, Zero, Comma, Equal, Lisp, RPN, Memory, Affect };
 
-        //
+        //    
         //déclaration
         //
         gbAffichage = new GroupBox();
