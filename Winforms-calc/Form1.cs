@@ -11,7 +11,6 @@ public partial class Form1 : Form
 
     private void Init()
     {
-
         this.comboVariable.Items.Clear();
 
         char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
@@ -25,8 +24,5 @@ public partial class Form1 : Form
         {
            this.comboFunction.Items.Add(f);
         }
-
     }
-
 }
-

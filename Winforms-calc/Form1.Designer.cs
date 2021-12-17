@@ -1,7 +1,5 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
-using System.Collections;
-using System.Text.RegularExpressions;
 namespace Winforms_calc;
 
 partial class Form1
