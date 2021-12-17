@@ -33,70 +33,48 @@ partial class Form1
 
     public class ButtonCalc : Button
     {
-
-        public ButtonCalc(string name, string text, int xPos, int yPos, int xSiz, int ySiz)
+        public ButtonCalc(string name, int xPos, int yPos)
         {
-            this.Name = Name;
-            this.Text = text;
+            this.Name = name;
+            this.Text = name;
             this.Location = new System.Drawing.Point(xPos, yPos);
-            this.Size = new System.Drawing.Size(xSiz, ySiz);
-
+            this.Size = new System.Drawing.Size(50, 50);
         }
     }
-    private GroupBox gbAffichage, gbNumber;
-    private ComboBox comboVariable;
-    private ComboBox comboFunction;
-    private int xPos
-    {
-        get;
-        set;
-    }
-    private int yPos
-    {
-        get;
-        set;
-    }
+    private GroupBox gbAffichage = new GroupBox(), gbNumber = new GroupBox();
+    private ComboBox comboVariable = new ComboBox(), comboFunction = new ComboBox();
+    private int xPos = 50, yPos = 10;
     private void InitializeComponent()
     {
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(400, 600);
+        this.ClientSize = new System.Drawing.Size(400, 650);
         this.Text = "Form1";
 
-        xPos = 0;
-        yPos = 0;
+        string[] mesButtons = new string[31] { "(", ")", ";", "Lisp", "RPN", "Memory", "Affect", "Unary", "CE", "C", "Return", "1/x", "x²", "²√x", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ",", "=" };
 
-        string[] mesButtons = new string[28] { "Lisp", "RPN", "Memory", "Affect", "Unary" ,"CE", "C", "Return", "1/x", "x²","²√x","/","7","8","9","*","4","5","6","-","1","2","3","+","+/-","0",",","="};
-           
-        //déclaration
-        gbAffichage = new GroupBox();
-        gbNumber = new GroupBox();
-        comboVariable = new ComboBox();
-        comboFunction = new ComboBox();
         for (int i = 0; i < mesButtons.Length; i++)
         {
             this.xPos = this.xPos + 50;
-
             if (this.xPos == 250)
             {
                 this.xPos = 50;
                 this.yPos = this.yPos + 50;
             }
-        
-            gbNumber.Controls.Add(new ButtonCalc(mesButtons[i], mesButtons[i], this.xPos, this.yPos, 50, 50));
+            gbNumber.Controls.Add(new ButtonCalc(mesButtons[i], this.xPos, this.yPos));
         }
 
         gbNumber.Location = new System.Drawing.Point(0, 220);
-        gbNumber.Size = new System.Drawing.Size(400, 380);
+        gbNumber.Size = new System.Drawing.Size(400, 450);
         gbNumber.Controls.AddRange(new Control[] { comboVariable, comboFunction });
-     
+
         //group box affichage
         gbAffichage.Text = "Affichage";
         gbAffichage.Location = new System.Drawing.Point(0, 20);
         gbAffichage.Size = new System.Drawing.Size(400, 200);
         gbAffichage.BackColor = Color.FromArgb(32, 32, 32);
         gbAffichage.ForeColor = Color.LightGray;
-        
+
         //COMBOBOX
         comboVariable.Text = "Variables";
         comboVariable.Location = new System.Drawing.Point(250, 0);
@@ -104,8 +82,7 @@ partial class Form1
         comboFunction.Location = new System.Drawing.Point(250, 40);
 
         //ADD
-        this.Controls.Add(gbAffichage);
-        this.Controls.Add(gbNumber);
+        this.Controls.AddRange(new Control[] { gbAffichage, gbNumber });
     }
     #endregion
 }
