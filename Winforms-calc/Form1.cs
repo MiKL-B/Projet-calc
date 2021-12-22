@@ -25,6 +25,7 @@ public partial class Form1 : Form
     {
         ButtonCalc b = sender as ButtonCalc;
         // Index i = sender as Index;
+        string textglobal = textAffichage.Text;
         switch (b.Text)
         {
             //efface un caractere
@@ -35,23 +36,94 @@ public partial class Form1 : Form
                 }
                 catch
                 {
-                     textAffichage.Text = "❌écran vide❌";
+                    textAffichage.Text = "[écran vide]";
                 }
                 break;
+
             case "Y Mode":
                 b.Click += ymode_Click;
+                b.Text = "N Mode";
+                break;
+            case "N Mode":
+                b.Click += nmode_Click;
+                b.Text = "Y Mode";
                 break;
             //efface affichage
-            case "Cancel":
-                textAffichage.Clear();
-                break;
-            //clear memory
             case "Clear":
-                i.Reset();
+                textAffichage.Clear();
+
                 break;
+            case "Exit":
+            Application.Exit();
+            break;
+
+            //Reset memory
+            case "Reset":
+                i.Reset();
+                textAffichage.Text = "[mémoire reset]";
+                break;
+
+            case "Memory":
+                List<string> m = i.PrintMemory();
+                string retour = "";
+                foreach (var item in m)
+                {
+                    retour += item + "\n";
+                }
+                MessageBox.Show(retour);
+                break;
+
+            case "RPN":
+                string textRPN = textAffichage.Text;
+                if (textRPN.Length == 0)
+                {
+                    textRPN = "error";
+                }
+                if (Parser.Parse(textRPN))
+                {
+                    textAffichage.Text = Parser.LastExpression.Serialize(new ReversePolishNotationExporter());
+                    b.Text = "TextRPN";
+                }
+                else
+                {
+                    textAffichage.Text = textRPN;
+                }
+                break;
+
+            case "TextRPN":
+                textAffichage.Text = Parser.LastExpression.Serialize(new SwitchExporter());
+                b.Text = "RPN";
+                break;
+                
+            case "Lisp":
+                string text = textAffichage.Text;
+
+                if (text.Length == 0)
+                {
+                    text = "error";
+                }
+                if (Parser.Parse(text))
+                {
+                    textAffichage.Text = Parser.LastExpression.Serialize(new LispExporter());
+                    b.Text = "Text";
+                }
+                else
+                {
+                    textAffichage.Text = "error lisp";
+                }
+
+                break;
+
+            case "Text":
+                textAffichage.Text = Parser.LastExpression.Serialize(new SwitchExporter());
+                b.Text = "Lisp";
+
+                break;
+
             case "Affect":
                 textAffichage.Text += "←";
                 break;
+
             case "=":
                 (bool success, double val, string error) resultat = i.Calculate(textAffichage.Text);
                 if (resultat.success)
@@ -89,6 +161,11 @@ public partial class Form1 : Form
     private void ymode_Click(object sender, EventArgs e)
     {
         textAffichage.Font = new Font("Microsoft sans serif", 100);
+
+    }
+    private void nmode_Click(object sender, EventArgs e)
+    {
+        textAffichage.Font = new Font("Microsoft sans serif", 20);
     }
 
 }

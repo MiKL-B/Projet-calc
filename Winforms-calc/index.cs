@@ -18,13 +18,15 @@ namespace Winforms_calc
         }
 
         /* METHODES */
-        public void PrintMemory()
+        public List<string> PrintMemory()
         {
+           List<string> memory = new List<string>();
             foreach (KeyValuePair<string, double> item in this.memory)
             {
-                System.Console.WriteLine($"{item.Key} = {item.Value}");
-                
+                memory.Add($"{item.Key} = {item.Value}");
+              //  System.Console.WriteLine($"{item.Key} = {item.Value}");   
             }
+            return memory;
         }
         public void Memorize(string k, double v)
         {

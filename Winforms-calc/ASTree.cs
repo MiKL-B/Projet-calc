@@ -133,10 +133,58 @@ namespace Winforms_calc
                     retour = "(" + t.Root + " " + t.Children[0].Serialize(this) + " " + t.Children[1].Serialize(this) + ")";
                 }
             }
+            else
+            {
+                retour = "(" + t.Root + ")";
+            }
 
             return retour;
         }
     }
+    public class SwitchExporter : IExporter
+    {
+        public string Export(ASTree t)
+        {
+            string retour = "";
+            if (t.Type == ASType.OPERATOR)
+            {
+                retour = t.Children[0].Serialize(this) + t.Root + t.Children[1].Serialize(this);
+            }
+            if (t.Type == ASType.NUMERIC || t.Type == ASType.VARIABLE)
+            {
+                retour = t.Root;
+            }
+            if (t.Type == ASType.UNARYOP)
+            {
+                retour = t.Root + t.Children[0].Serialize(this);
+            }
+            if (t.Type == ASType.FUNCTION)
+            {
+                if (t.Children == null)
+                {
+                    retour = t.Root + "(" + ")";
+                }
+                else
+                {
+                    retour = t.Root + "(";
+                    for (int i = 0; i < t.Children.Count; i++)
+                    {
+                        if (i == t.Children.Count - 1)
+                        {
+                            retour += t.Children[i].Serialize(this);
+                        }
+                        else
+                        {
+                            retour += t.Children[i].Serialize(this) + ",";
+                        }
+                    }
+                    retour += ")";
+                }
+            }
+            return retour;
+        }
+    }
+
     /*MEMORY*/
     public interface IMemory
     {
@@ -316,14 +364,12 @@ namespace Winforms_calc
 
             return this.Serialize(new TextExporter());
         }
-    
+
         public string Serialize(IExporter exporter)
         {
-             //conversion en notation voulue ( dans notre cas )
+            //conversion en notation voulue ( dans notre cas )
             return exporter.Export(this);
         }
-     
-           
 
     }
 
