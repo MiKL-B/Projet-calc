@@ -23,6 +23,7 @@ namespace Winforms_calc
             foreach (KeyValuePair<string, double> item in this.memory)
             {
                 System.Console.WriteLine($"{item.Key} = {item.Value}");
+                
             }
         }
         public void Memorize(string k, double v)

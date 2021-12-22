@@ -31,7 +31,7 @@ partial class Form1
     private ComboBox comboVariable = new ComboBox();
     private ComboBox comboFunction = new ComboBox();
 
-    private int xPos = 0, yPos = 10;
+    private int xPos = 50, yPos = 10;
     private TextBox textAffichage = new TextBox();
     private void InitializeComponent()
     {
@@ -40,7 +40,7 @@ partial class Form1
         this.ClientSize = new System.Drawing.Size(400, 650);
         this.Text = "Form1";
 
-        string[] mesButtons = new string[32] {"a", "Reset","Y Mode", "Memory", "Affect", "Unary", "Clear", "Cancel", "Return", ".", "(", ")", ";", "1/x", "²", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ",", "=" };
+        string[] mesButtons = new string[27] {"Y Mode", "Memory", "Affect", "Clear", "Cancel", "Return", ".", "(", ")", ";", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "", "0", ",", "=" };
 
 
         for (int i = 0; i < mesButtons.Length; i++)

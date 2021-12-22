@@ -19,8 +19,6 @@ public partial class Form1 : Form
         {
             this.comboVariable.Items.Add(c);
         }
-
-
     }
 
     private void button_Click(object sender, EventArgs e)
@@ -45,16 +43,8 @@ public partial class Form1 : Form
                 i.Reset();
                 break;
             case "Affect":
-                textAffichage.Text += "<-";
-              
+                textAffichage.Text += "←";
                 break;
-            //affiche la memoire
-            case "Memory":
-
-                i.PrintMemory();
-             
-                break;
-
             case "=":
                 (bool success, double val, string error) resultat = i.Calculate(textAffichage.Text);
                 if (resultat.success)
