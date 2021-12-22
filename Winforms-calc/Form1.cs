@@ -33,7 +33,7 @@ public partial class Form1 : Form
                 {
                     textAffichage.Text = textAffichage.Text.Remove(textAffichage.Text.Length - 1);
                 }
-                catch(Exception)
+                catch
                 {
                      textAffichage.Text = "❌écran vide❌";
                 }
