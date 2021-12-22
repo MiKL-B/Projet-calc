@@ -12,13 +12,13 @@ public partial class Form1 : Form
 
     private void Init()
     {
-        this.comboVariable.Items.Clear();
+        // this.comboVariable.Items.Clear();
 
-        char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
-        foreach (var c in az)
-        {
-            this.comboVariable.Items.Add(c);
-        }
+        // char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
+        // foreach (var c in az)
+        // {
+        //     this.comboVariable.Items.Add(c);
+        // }
     }
 
     private void button_Click(object sender, EventArgs e)
@@ -29,7 +29,14 @@ public partial class Form1 : Form
         {
             //efface un caractere
             case "Return":
-                textAffichage.Text = textAffichage.Text.Remove(textAffichage.Text.Length - 1);
+                try
+                {
+                    textAffichage.Text = textAffichage.Text.Remove(textAffichage.Text.Length - 1);
+                }
+                catch(Exception)
+                {
+                     textAffichage.Text = "❌écran vide❌";
+                }
                 break;
             case "Y Mode":
                 b.Click += ymode_Click;
