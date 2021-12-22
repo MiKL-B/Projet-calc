@@ -7,7 +7,7 @@ public partial class Form1 : Form
     {
         InitializeComponent();
         this.Init();
-        
+
     }
 
     private void Init()
@@ -30,15 +30,21 @@ public partial class Form1 : Form
     private void button_Click(object sender, EventArgs e)
     {
         ButtonCalc b = sender as ButtonCalc;
-
+        Index i = sender as Index;
         switch (b.Text)
         {
             case "Return":
                 textAffichage.Text = textAffichage.Text.Remove(textAffichage.Text.Length - 1);
                 break;
             case "Y Mode":
-           b.Click += ymode_Click;
-            break;
+                b.Click += ymode_Click;
+                break;
+            case "C" or "CE":
+                textAffichage.Clear();
+                break;
+            case "Memory":
+         
+                break;
             default:
                 textAffichage.Text += b.Text;
                 break;

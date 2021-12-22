@@ -38,7 +38,8 @@ partial class Form1
         this.ClientSize = new System.Drawing.Size(400, 650);
         this.Text = "Form1";
 
-        string[] mesButtons = new string[32] { "Y Mode","Lisp", "RPN", "Memory", "Affect", "Unary", "CE", "C", "Return", ".", "(", ")", ";", "1/x", "²", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ",", "=" };
+        string[] mesButtons = new string[32] { "Y Mode", "Lisp", "RPN", "Memory", "Affect", "Unary", "CE", "C", "Return", ".", "(", ")", ";", "1/x", "²", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ",", "=" };
+
 
         for (int i = 0; i < mesButtons.Length; i++)
         {
@@ -49,8 +50,10 @@ partial class Form1
                 this.yPos = this.yPos + 50;
             }
             ButtonCalc item = new ButtonCalc(mesButtons[i], this.xPos, this.yPos);
+ 
             item.Click += button_Click;
             gbNumber.Controls.Add(item);
+ 
         }
 
         gbNumber.Location = new System.Drawing.Point(0, 220);
@@ -67,7 +70,7 @@ partial class Form1
         textAffichage.Location = new System.Drawing.Point(0, 20);
         textAffichage.Size = new System.Drawing.Size(400, 0);
         textAffichage.Font = new Font("Microsoft sans serif", 20);
-        textAffichage.BackColor = Color.FromArgb(32,32,32);
+        textAffichage.BackColor = Color.FromArgb(32, 32, 32);
         textAffichage.ForeColor = Color.LightGray;
 
 
