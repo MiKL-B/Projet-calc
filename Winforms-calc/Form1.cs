@@ -2,7 +2,7 @@ namespace Winforms_calc;
 
 public partial class Form1 : Form
 {
-
+    public Index i = new Index();
     public Form1()
     {
         InitializeComponent();
@@ -20,35 +20,74 @@ public partial class Form1 : Form
             this.comboVariable.Items.Add(c);
         }
 
-        string[] functions = new string[11] { "sqrt", "pow", "sin", "cos", "tan", "asin", "acos", "atan", "pi", "e", "ln" };
-        foreach (var f in functions)
-        {
-            this.comboFunction.Items.Add(f);
-        }
+
     }
 
     private void button_Click(object sender, EventArgs e)
     {
         ButtonCalc b = sender as ButtonCalc;
-        Index i = sender as Index;
+        // Index i = sender as Index;
         switch (b.Text)
         {
+            //efface un caractere
             case "Return":
                 textAffichage.Text = textAffichage.Text.Remove(textAffichage.Text.Length - 1);
                 break;
             case "Y Mode":
                 b.Click += ymode_Click;
                 break;
-            case "C" or "CE":
+            //efface affichage
+            case "Cancel":
                 textAffichage.Clear();
                 break;
-            case "Memory":
-         
+            //clear memory
+            case "Clear":
+                i.Reset();
                 break;
+            case "Affect":
+                textAffichage.Text += "<-";
+              
+                break;
+            //affiche la memoire
+            case "Memory":
+
+                i.PrintMemory();
+             
+                break;
+
+            case "=":
+                (bool success, double val, string error) resultat = i.Calculate(textAffichage.Text);
+                if (resultat.success)
+                {
+                    textAffichage.Text = resultat.val.ToString();
+                }
+                else
+                {
+                    textAffichage.Text = resultat.error;
+                }
+                break;
+
             default:
                 textAffichage.Text += b.Text;
                 break;
         }
+    }
+
+    private void comboFunction_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (comboFunction.SelectedIndex != -1)
+        {
+            textAffichage.Text = comboFunction.SelectedItem.ToString();
+        }
+
+    }
+    private void comboVariable_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (comboVariable.SelectedIndex != -1)
+        {
+            textAffichage.Text += comboVariable.SelectedItem.ToString();
+        }
+
     }
     private void ymode_Click(object sender, EventArgs e)
     {

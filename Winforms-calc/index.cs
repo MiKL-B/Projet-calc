@@ -11,10 +11,10 @@ namespace Winforms_calc
     {
         protected Dictionary<string, double> memory;
 
-        Index()
+      public  Index()
         {
             this.memory = new Dictionary<string, double>();
-             this.Reset();
+            this.Reset();
         }
 
         /* METHODES */
@@ -45,31 +45,35 @@ namespace Winforms_calc
             }
             return 0;
         }
-            public void Reset(){
-      this.memory.Clear();
-      this.memory.Add("pi", Math.PI);
-      this.memory.Add("e", Math.E);
-      this.memory.Add("PI", Math.PI);
-      this.memory.Add("E", Math.E);
-    }
-
-    public void Reset(string v){
-      if(this.memory.ContainsKey(v)){
-        switch(v){
-          case "pi":
-          case "PI":
-            this.memory[v] = Math.PI;
-            break;
-          case "e":
-          case "E":
-            this.memory[v] = Math.E;
-            break;
-          default:
-            this.memory.Remove(v);
-            break;
+        public void Reset()
+        {
+            this.memory.Clear();
+            this.memory.Add("pi", Math.PI);
+            this.memory.Add("e", Math.E);
+            this.memory.Add("PI", Math.PI);
+            this.memory.Add("E", Math.E);
         }
-      }
-    }
+
+        public void Reset(string v)
+        {
+            if (this.memory.ContainsKey(v))
+            {
+                switch (v)
+                {
+                    case "pi":
+                    case "PI":
+                        this.memory[v] = Math.PI;
+                        break;
+                    case "e":
+                    case "E":
+                        this.memory[v] = Math.E;
+                        break;
+                    default:
+                        this.memory.Remove(v);
+                        break;
+                }
+            }
+        }
         public (bool Success, double Value, string Error) Calculate(string expr)
         {
             if (!Parser.Parse(expr))

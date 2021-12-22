@@ -28,7 +28,9 @@ partial class Form1
         }
     }
     private GroupBox gbAffichage = new GroupBox(), gbNumber = new GroupBox();
-    private ComboBox comboVariable = new ComboBox(), comboFunction = new ComboBox();
+    private ComboBox comboVariable = new ComboBox();
+    private ComboBox comboFunction = new ComboBox();
+
     private int xPos = 0, yPos = 10;
     private TextBox textAffichage = new TextBox();
     private void InitializeComponent()
@@ -38,7 +40,7 @@ partial class Form1
         this.ClientSize = new System.Drawing.Size(400, 650);
         this.Text = "Form1";
 
-        string[] mesButtons = new string[32] { "Y Mode", "Lisp", "RPN", "Memory", "Affect", "Unary", "CE", "C", "Return", ".", "(", ")", ";", "1/x", "²", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ",", "=" };
+        string[] mesButtons = new string[32] {"a", "Reset","Y Mode", "Memory", "Affect", "Unary", "Clear", "Cancel", "Return", ".", "(", ")", ";", "1/x", "²", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ",", "=" };
 
 
         for (int i = 0; i < mesButtons.Length; i++)
@@ -50,12 +52,27 @@ partial class Form1
                 this.yPos = this.yPos + 50;
             }
             ButtonCalc item = new ButtonCalc(mesButtons[i], this.xPos, this.yPos);
- 
+
             item.Click += button_Click;
             gbNumber.Controls.Add(item);
- 
-        }
 
+        }
+        this.comboFunction.SelectedIndexChanged += new System.EventHandler(this.comboFunction_SelectedIndexChanged);
+        string[] functions = new string[11] { "sqrt", "pow", "sin", "cos", "tan", "asin", "acos", "atan", "pi", "e", "ln" };
+
+        foreach (var f in functions)
+        {
+            this.comboFunction.Items.Add(f);
+        }
+        this.comboVariable.SelectedIndexChanged += new System.EventHandler(this.comboVariable_SelectedIndexChanged);
+
+        this.comboVariable.Items.Clear();
+
+        char[] az = Enumerable.Range('a', 'z' - 'a' + 1).Select(i => (Char)i).ToArray();
+        foreach (var c in az)
+        {
+            this.comboVariable.Items.Add(c);
+        }
         gbNumber.Location = new System.Drawing.Point(0, 220);
         gbNumber.Size = new System.Drawing.Size(400, 450);
         gbNumber.Controls.AddRange(new Control[] { comboVariable, comboFunction });
